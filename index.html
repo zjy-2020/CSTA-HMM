@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Contexual-Gesture: Co-Speech Gesture Video Generation Through Context-aware Gesture Representation.">
+  <meta name="keywords" content="gesture generation, motion representation, video generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Contexual Gesture: Co-Speech Gesture Video Generation Through Context-aware Gesture Representation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Arxiv 2025
+            </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.07239v1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/---------(Anonymous)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+
+              
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="./static/images/icml-teaser.png"/>
+      <p>
+        Contextual Gesture achieves various fine-grained control over video-level gesture motion. <b>Left</b>: We can generate 30s to 1 min speech conditioned gesture videos. <b>Mid</b>: We modify the gestures for intermediate frames of a video by providing a new audio segment. <b>Right</b>: Different people present the same gesture patterns for a given audio.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Co-speech gesture generation is crucial for creating lifelike avatars and enhancing human-computer interactions by synchronizing gestures with speech. Despite recent advancements, existing methods struggle with accurately identifying the rhythmic or semantic triggers from audio for generating contextualized gesture patterns and achieving pixel-level realism. To address these challenges, we introduce Contextual Gesture, a framework that improves co-speech gesture video generation through three innovative components: (1) a chronological speech-gesture alignment that temporally connects two modalities, (2) a contextualized gesture tokenization that incorporate speech context into motion pattern representation through distillation, and (3) a structure-aware refinement module that employs edge connection to link gesture keypoints to improve video generation. Our extensive experiments demonstrate that Contextual Gesture not only produces realistic and speech-aligned gesture videos but also supports long-sequence generation and video gesture editing applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+    <div class="hero-body">
+        <img src="./static/images/pipeline-2.jpg"/>
+      <p>Left: Contrastive Learning for gesture-speech alignment. We distill the joint speech contextual-aware feature into latent codebook. Right: We use speech for generating discrete gesture motion tokens with Mask Gesture Generator. We apply random mask for token reconstruction during training and iterative remask based on probability for inference. Residual Gesture Generator finally based on the base VQ-tokens to predict the residual quantized tokens.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparisons</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chem1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chem2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chem3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/noah1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/noah2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/noah3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/oliver1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/oliver2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/oliver3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video10">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/seth1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video11">
+          <video poster="" id="video11" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/seth2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video12">
+          <video poster="" id="video12" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/seth3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h2 class="content has-text-centered">
+        We compare our method with S2G-Diffusion, ANGIE, we exlude the results of MM-Diffusion due to its inablilty to generate long sequence videos 
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparison with EchoMimicV2 and Ablation Study of Alignment</h2>
+      
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chrono-1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chrono-2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chrono-3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/chrono-4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        We compare with EchoMimicV2, together with the ablation study of the effectivenss of chronological modality alignment during distillation. The results show that chronological alignment can help reduce the unnatural temporal transitions and jittering problems while making gesture patterns more diverse.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">  
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Long Sequence Generation</h2>
+          <!-- <p><b><font face="verdana">the generated motion is in <font color="#f5a623">orange</font></font></b></p> -->
+          <div class="content">
+            <div class="columns is-centered">
+              <!-- Left Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="./static/videos/long_seq1.mp4" type="video/mp4">
+                </video>
+              </div>
+              
+              <!-- Middle Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="./static/videos/long_seq2.mp4" type="video/mp4">
+                </video>
+              </div>
+              
+              <!-- Right Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="./static/videos/long_seq3.mp4" type="video/mp4">
+                </video>
+              </div>
+
+
+              <!-- Right Video -->
+              <div class="column is-one-fourth has-text-centered">
+                <video poster="" playsinline autoplay muted loop style="width: 100%; max-width: 300px;">
+                  <source src="./static/videos/long_seq4.mp4" type="video/mp4">
+                </video>
+              </div>
+
+
+
+            </div>
+            
+
+          </div>
+          <h2 class="content has-text-centered">
+            We can achieve longer than 30s or even 1 min video speech-driven video generations.
+        </div>
+      </div>    
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Gesture Video Editing</h2>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        
+        <div class="item">
+          <div class="columns is-centered">
+            <!-- Original Video -->
+            <div class="column is-half">
+              <center><video poster="" autoplay controls muted loop height="100%">
+                <source src="static/videos/edit2-ori.mp4" type="video/mp4">
+              </video></center>
+            </div>
+            <!-- Edited Video -->
+            <div class="column is-half">
+              <center><video poster="" autoplay controls muted loop height="100%">
+                <source src="static/videos/edit2-new.mp4" type="video/mp4">
+              </video></center>
+            </div>
+          </div>
+        </div>
+        
+      <!-- </div> -->
+      <h2 class="content has-text-centered">
+        In this example, we modify the first 7 seconds with the new audio, and the last 8 seconds from the original videos for generating the edited result.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Gesture Pattern Transfer-1</h2>
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_0_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_1_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_3_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        We can re-enact different characters with the same audio to present the same gesture patterns. 
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Gesture Pattern Transfer-2</h2>
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_4_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_5_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/pattern_6_merged.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        We can re-enact the same character with the same audio to present different gesture patterns.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Comparison on BEAT-X</h2>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/beat-x-comparison.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/beat-x-comparison2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/beat-x-comparison3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+      <h2 class="content has-text-centered">
+        Emage presents unnatural temporal transitions of gestures and jittorings. Our work achieves more aligned gesture motions conditioned on speech audio. With contextural distillation, the motion patterns can be more natural as shown on the left.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Ablation: Contexutalized Motion Representation</h2>
+      
+      <center><div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/ab-1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/ab-2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/ab-3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div></center>
+      <h2 class="content has-text-centered">
+        Only relying on RVQ tokenization, the generated gestures are weakly aligned with the speech audio. By incorporating the pretrained audio encoder from the temporal alignment, this problem can be alleviated. Our contexutalized distillation can further enhance the temporal matching with more natural movements, beat patterns and faical expressions.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Ablation: Video Avatar Animation</h2>
+      <center><div id="results-carousel" class="carousel results-carousel">
+        
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/vis-compare1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/vis-compare2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+      </div></center>
+      <h2 class="content has-text-centered">
+        We compare our image-warping based method with AnimateAnyone for video avatar animation. AnimateAnyone, though achieves high quality hand structures, fails to maintain the identity of the source speaker. In addition, it fails to capture the temporal background motions caused by camera movement within the video, leading to unstable background rendering.
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code>@misc{liu2025contextualgesturecospeechgesture,
+        title={Contextual Gesture: Co-Speech Gesture Video Generation through Context-aware Gesture Representation}, 
+        author={Pinxin Liu and Pengfei Zhang and Hyeongwoo Kim and Pablo Garrido and Ari Sharpio and Kyle Olszewski},
+        year={2025},
+        eprint={2502.07239},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2502.07239}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer" style="padding-top: 6px; padding-bottom: 6px;">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Our website template comes from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and is modified based on it. Thanks to the authors contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
