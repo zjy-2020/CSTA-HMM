@@ -79,7 +79,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            To address the issues of speech-gesture asynchrony and unnatural hand motion observed in existing methods, we propose a novel audio-driven gesture generation framework. This framework integrates a hierarchical diffusion model with multimodal feature disentanglement and dynamic fusion strategies. The core of our approach is the Cross-modal Spatio-Temporal Attention mechanism (CSTA) module, which ensures high-fidelity synchronization between audio and human motion while capturing fine-grained dynamics of hand and facial gestures. By effectively disentangling different motion modalities, CSTA enhances the alignment between body part movements and the audio signal, leading to more natural and coherent video synthesis. Furthermore, to improve the physical plausibility and diversity of generated gestures, we introduce a Hand Memory Module (HMM). This module leverages a Vector Quantization-Variational Autoencoder (VQ-VAE) to learn a discrete gesture prior. By injecting these learned priors during the generation process, our method not only enhances temporal consistency but also preserves intricate details, mitigating common issues in prior work such as motion blur and detail loss.
+           Co-speech video generation focuses on improving the authenticity of virtual characters by aligning their gestures and facial expressions with spoken audio. However, existing methods often suffer from speech-gesture misalignment and unnatural hand motions. To address the issues, we propose a novel audio-driven gesture generation framework. This framework integrates a hierarchical diffusion model with multimodal feature disentanglement and dynamic fusion strategies. The core of our approach is the Cross-modal Spatial-Temporal Attention mechanism (CSTA), which ensures high-fidelity synchronization between audio and human motion while capturing fine-grained dynamics of hand and facial gestures. By effectively disentangling different motion modalities, CSTA enhances the alignment between body part movements and the audio signal, leading to more natural and coherent video synthesis. Furthermore, to improve the physical plausibility and diversity of generated gestures, we introduce a Hand Memory Module (HMM). This module leverages a Vector Quantization-Variational Autoencoder (VQ-VAE) to learn a discrete gesture prior. By injecting these learned priors during the generation process, our method not only enhances temporal consistency but also preserves intricate details, mitigating common issues in prior work such as motion blur and detail loss. Experiments on the PATS and BEAT2 datasets demonstrate that CSTA surpasses existing methods in generating co-speech videos with more synchronized and natural hand motions, achieving state-of-the-art performance in both qualitative and quantitative evaluations.
           </p>
         </div>
       </div>
@@ -215,20 +215,6 @@
             type="video/mp4">
           </video>
         </div>
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/beat-x-comparison2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/beat-x-comparison3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
       <!-- </div> -->
       <h2 class="content has-text-centered">
         Emage presents unnatural temporal transitions of gestures and jittorings. Our work achieves more aligned gesture motions conditioned on speech audio. With contextural distillation, the motion patterns can be more natural as shown on the left.
@@ -241,7 +227,7 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-4">Visual landmark sequence</h2>
+      <h2 class="title is-4">Visual landmarks sequence</h2>
       
       <center><div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
